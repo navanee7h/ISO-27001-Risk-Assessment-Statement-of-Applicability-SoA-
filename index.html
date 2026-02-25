@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISO 27001 Risk Assessment & Statement of Applicability</title>
+    <meta name="description"
+        content="ISO 27001:2013 Risk Assessment and Statement of Applicability (SoA) — interactive dashboard for ISMS risk management.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">ISO 27001</span>
+                    <span class="logo-subtitle">ISMS Risk Manager</span>
+                </div>
+            </div>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="nav-item active" data-tab="dashboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="assets">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 7h-9" />
+                    <path d="M14 17H5" />
+                    <circle cx="17" cy="17" r="3" />
+                    <circle cx="7" cy="7" r="3" />
+                </svg>
+                <span>Asset Inventory</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="risk-assessment">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                    <line x1="12" y1="9" x2="12" y2="13" />
+                    <line x1="12" y1="17" x2="12.01" y2="17" />
+                </svg>
+                <span>Risk Assessment</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="soa">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                    <polyline points="14 2 14 8 20 8" />
+                    <line x1="16" y1="13" x2="8" y2="13" />
+                    <line x1="16" y1="17" x2="8" y2="17" />
+                    <polyline points="10 9 9 9 8 9" />
+                </svg>
+                <span>SoA</span>
+            </a>
+            <a href="#" class="nav-item" data-tab="treatment">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 11 12 14 22 4" />
+                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                </svg>
+                <span>Risk Treatment</span>
+            </a>
+        </nav>
+        <div class="sidebar-footer">
+            <div class="org-badge">
+                <div class="org-avatar">NT</div>
+                <div class="org-info">
+                    <span class="org-name">NovaTech Solutions</span>
+                    <span class="org-role">IT Services Company</span>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12" />
+                        <line x1="3" y1="6" x2="21" y2="6" />
+                        <line x1="3" y1="18" x2="21" y2="18" />
+                    </svg>
+                </button>
+                <div class="page-title-area">
+                    <h1 id="pageTitle">Dashboard</h1>
+                    <p id="pageSubtitle">ISO 27001:2013 ISMS Risk Overview</p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-badge">
+                    <span class="badge-dot"></span>
+                    <span>Last Assessment: Feb 2026</span>
+                </div>
+                <button class="btn btn-outline" id="exportBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16">
+                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Export CSV
+                </button>
+            </div>
+        </header>
+
+        <!-- Tab Content Sections -->
+
+        <!-- ============ DASHBOARD ============ -->
+        <section class="tab-content active" id="tab-dashboard">
+            <div class="kpi-grid">
+                <div class="kpi-card kpi-total">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M12 6v6l4 2" />
+                        </svg>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-value" id="kpiTotalRisks">0</span>
+                        <span class="kpi-label">Total Risks</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-critical">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path
+                                d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                            <line x1="12" y1="9" x2="12" y2="13" />
+                            <line x1="12" y1="17" x2="12.01" y2="17" />
+                        </svg>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-value" id="kpiCritical">0</span>
+                        <span class="kpi-label">Critical Risks</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-high">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                        </svg>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-value" id="kpiHigh">0</span>
+                        <span class="kpi-label">High Risks</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-assets">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                            <line x1="8" y1="21" x2="16" y2="21" />
+                            <line x1="12" y1="17" x2="12" y2="21" />
+                        </svg>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-value" id="kpiAssets">0</span>
+                        <span class="kpi-label">Assets Identified</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-controls">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-value" id="kpiControls">0</span>
+                        <span class="kpi-label">Annex A Controls</span>
+                    </div>
+                </div>
+                <div class="kpi-card kpi-treated">
+                    <div class="kpi-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 11 12 14 22 4" />
+                            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                        </svg>
+                    </div>
+                    <div class="kpi-info">
+                        <span class="kpi-value" id="kpiTreated">0%</span>
+                        <span class="kpi-label">Risks Treated</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- Risk Heat Map -->
+                <div class="card card-heatmap">
+                    <div class="card-header">
+                        <h2>Risk Heat Map</h2>
+                        <span class="card-badge">5×5 Matrix</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="heatmap-container">
+                            <div class="heatmap-ylabel">LIKELIHOOD →</div>
+                            <div class="heatmap-grid" id="heatmapGrid">
+                                <!-- Generated by JS -->
+                            </div>
+                            <div class="heatmap-xlabel">IMPACT →</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk by Category Chart -->
+                <div class="card card-chart">
+                    <div class="card-header">
+                        <h2>Risks by Category</h2>
+                        <span class="card-badge">Distribution</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="bar-chart" id="riskCategoryChart">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Level Distribution -->
+                <div class="card card-donut">
+                    <div class="card-header">
+                        <h2>Risk Level Distribution</h2>
+                        <span class="card-badge">Summary</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="donut-chart-wrapper">
+                            <div class="donut-chart" id="riskDonutChart"></div>
+                            <div class="donut-legend" id="riskDonutLegend"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment Status -->
+                <div class="card card-treatment">
+                    <div class="card-header">
+                        <h2>Treatment Status</h2>
+                        <span class="card-badge">Progress</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="treatment-bars" id="treatmentBars">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ ASSET INVENTORY ============ -->
+        <section class="tab-content" id="tab-assets">
+            <div class="table-toolbar">
+                <div class="toolbar-left">
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" placeholder="Search assets..." id="assetSearch">
+                    </div>
+                    <select class="filter-select" id="assetTypeFilter">
+                        <option value="">All Types</option>
+                        <option value="Hardware">Hardware</option>
+                        <option value="Software">Software</option>
+                        <option value="Data">Data</option>
+                        <option value="People">People</option>
+                        <option value="Service">Service</option>
+                        <option value="Facility">Facility</option>
+                    </select>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" id="addAssetBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                            height="16">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Add Asset
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="assetTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="id">ID <span class="sort-icon">↕</span></th>
+                            <th data-sort="name">Asset Name <span class="sort-icon">↕</span></th>
+                            <th data-sort="type">Type <span class="sort-icon">↕</span></th>
+                            <th data-sort="owner">Owner <span class="sort-icon">↕</span></th>
+                            <th data-sort="location">Location <span class="sort-icon">↕</span></th>
+                            <th data-sort="criticality">Criticality <span class="sort-icon">↕</span></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="assetTableBody">
+                        <!-- Generated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ RISK ASSESSMENT ============ -->
+        <section class="tab-content" id="tab-risk-assessment">
+            <div class="table-toolbar">
+                <div class="toolbar-left">
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" placeholder="Search risks..." id="riskSearch">
+                    </div>
+                    <select class="filter-select" id="riskLevelFilter">
+                        <option value="">All Levels</option>
+                        <option value="Critical">Critical</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </select>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-primary" id="addRiskBtn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16"
+                            height="16">
+                            <line x1="12" y1="5" x2="12" y2="19" />
+                            <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Add Risk
+                    </button>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="riskTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="id">Risk ID <span class="sort-icon">↕</span></th>
+                            <th data-sort="asset">Asset <span class="sort-icon">↕</span></th>
+                            <th data-sort="threat">Threat <span class="sort-icon">↕</span></th>
+                            <th data-sort="vulnerability">Vulnerability <span class="sort-icon">↕</span></th>
+                            <th data-sort="likelihood">Likelihood <span class="sort-icon">↕</span></th>
+                            <th data-sort="impact">Impact <span class="sort-icon">↕</span></th>
+                            <th data-sort="score">Risk Score <span class="sort-icon">↕</span></th>
+                            <th data-sort="level">Risk Level <span class="sort-icon">↕</span></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="riskTableBody">
+                        <!-- Generated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ SOA ============ -->
+        <section class="tab-content" id="tab-soa">
+            <div class="soa-intro">
+                <div class="soa-intro-card">
+                    <h2>Statement of Applicability (SoA)</h2>
+                    <p>This document maps ISO 27001:2013 Annex A controls to the identified risks. Each control is
+                        marked as Applicable or Not Applicable with justification aligned to the organization's ISMS
+                        scope.</p>
+                </div>
+            </div>
+            <div class="table-toolbar">
+                <div class="toolbar-left">
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" placeholder="Search controls..." id="soaSearch">
+                    </div>
+                    <select class="filter-select" id="soaDomainFilter">
+                        <option value="">All Domains</option>
+                    </select>
+                    <select class="filter-select" id="soaStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="Applicable">Applicable</option>
+                        <option value="Not Applicable">Not Applicable</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="soaTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="controlId">Control ID <span class="sort-icon">↕</span></th>
+                            <th data-sort="domain">Domain <span class="sort-icon">↕</span></th>
+                            <th data-sort="control">Control <span class="sort-icon">↕</span></th>
+                            <th data-sort="applicable">Applicable <span class="sort-icon">↕</span></th>
+                            <th data-sort="justification">Justification</th>
+                            <th data-sort="implementation">Implementation Status <span class="sort-icon">↕</span></th>
+                            <th data-sort="relatedRisks">Related Risks</th>
+                        </tr>
+                    </thead>
+                    <tbody id="soaTableBody">
+                        <!-- Generated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ============ RISK TREATMENT ============ -->
+        <section class="tab-content" id="tab-treatment">
+            <div class="table-toolbar">
+                <div class="toolbar-left">
+                    <div class="search-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18"
+                            height="18">
+                            <circle cx="11" cy="11" r="8" />
+                            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                        </svg>
+                        <input type="text" placeholder="Search treatments..." id="treatmentSearch">
+                    </div>
+                    <select class="filter-select" id="treatmentActionFilter">
+                        <option value="">All Actions</option>
+                        <option value="Mitigate">Mitigate</option>
+                        <option value="Accept">Accept</option>
+                        <option value="Transfer">Transfer</option>
+                        <option value="Avoid">Avoid</option>
+                    </select>
+                    <select class="filter-select" id="treatmentStatusFilter">
+                        <option value="">All Status</option>
+                        <option value="Completed">Completed</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Planned">Planned</option>
+                        <option value="Not Started">Not Started</option>
+                    </select>
+                </div>
+            </div>
+            <div class="table-container">
+                <table class="data-table" id="treatmentTable">
+                    <thead>
+                        <tr>
+                            <th data-sort="id">ID <span class="sort-icon">↕</span></th>
+                            <th data-sort="riskId">Risk ID <span class="sort-icon">↕</span></th>
+                            <th data-sort="risk">Risk Description <span class="sort-icon">↕</span></th>
+                            <th data-sort="action">Treatment Action <span class="sort-icon">↕</span></th>
+                            <th data-sort="description">Description</th>
+                            <th data-sort="owner">Responsible Owner <span class="sort-icon">↕</span></th>
+                            <th data-sort="deadline">Deadline <span class="sort-icon">↕</span></th>
+                            <th data-sort="status">Status <span class="sort-icon">↕</span></th>
+                            <th data-sort="residual">Residual Risk <span class="sort-icon">↕</span></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="treatmentTableBody">
+                        <!-- Generated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add Entry</h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Dynamic form content -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="modalCancel">Cancel</button>
+                <button class="btn btn-primary" id="modalSave">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
