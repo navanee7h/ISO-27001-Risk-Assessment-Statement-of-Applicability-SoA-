@@ -69,7 +69,7 @@ This project demonstrates a simulated ISO 27001:2013 risk assessment for **NovaT
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/iso27001-risk-assessment.git
+   git clone https://github.com/navanee7h/ISO-27001-Risk-Assessment-Statement-of-Applicability-SoA-.git
    cd iso27001-risk-assessment
    ```
 
@@ -194,3 +194,4 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 ---
 
 > **Disclaimer**: This is a simulated risk assessment for educational and portfolio purposes. It does not represent a real organization's security posture or a certified ISMS implementation.
+
