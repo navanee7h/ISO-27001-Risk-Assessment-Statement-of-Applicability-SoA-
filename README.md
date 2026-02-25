@@ -187,6 +187,17 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 
 ---
 
+IMAGES
+
+<img width="1902" height="878" alt="image" src="https://github.com/user-attachments/assets/dcde6a23-bd77-4fdc-a003-4232377b7863" />
+<img width="1906" height="801" alt="image" src="https://github.com/user-attachments/assets/07b70e8c-d25d-4987-b943-a5760120906f" />
+<img width="1899" height="802" alt="image" src="https://github.com/user-attachments/assets/74edfeeb-f4d5-4078-a29a-f127a1cc3cbb" />
+<img width="1908" height="794" alt="image" src="https://github.com/user-attachments/assets/94961647-b423-4513-b897-7e5a759e3d71" />
+<img width="1900" height="804" alt="image" src="https://github.com/user-attachments/assets/98175960-1c42-4b10-9262-5d34b068baf3" />
+
+
+
+
 ## 👤 Author
 
 **NovaTech Solutions ISMS Team** — Simulated project for educational purposes.
@@ -194,4 +205,5 @@ Contributions are welcome! Feel free to open issues or submit pull requests.
 ---
 
 > **Disclaimer**: This is a simulated risk assessment for educational and portfolio purposes. It does not represent a real organization's security posture or a certified ISMS implementation.
+
 
